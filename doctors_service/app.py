@@ -15,3 +15,7 @@ async def PostDoctor(_doctor: Doctor):
 @apiDoctors.get("/doctor")
 async def GetDoctor(name: str, lastName:str, speciality:str):
     return DbConnection.GetOneDoctor(name, lastName, speciality)
+
+@apiDoctors.put("/updateDoctor")
+async def UpdateDoctor(name: str, lastName:str, speciality:str, _doctor:Doctor):
+    return DbConnection.UpdateDoctor(name, lastName, speciality, _doctor)

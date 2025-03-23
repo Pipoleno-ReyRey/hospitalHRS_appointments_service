@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "2XBMlEaAUtrvoUVK2vZwFdLM7BP22fEGikAwstzmkQo=",
+  "Source": "appointments_service",
+  "BasePath": "_content/appointments_service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

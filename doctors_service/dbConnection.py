@@ -56,3 +56,13 @@ class DbConnection:
                     salary=doctor["salary"])
         
         return _doctor 
+    
+    @staticmethod
+    def UpdateDoctor(name:str, lastName:str, speciality:str, doctor: Doctor):
+        _doctor = None
+        urlConnection = "mongodb+srv://reynaldo:reynaldo066512@cluster0.g786f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        mongoClient = pymongo.MongoClient(urlConnection)
+        database = mongoClient["doctorsDb"]
+        collection = database["doctors"]
+        filters = {"name":{"$regex":name, "$options":"i"}, "lastName": {"$regex":lastName, "$options":"i"}, "speciality": {"$regex":speciality, "$options":"i"}}
+        collection.update_one(filters, doctor)
