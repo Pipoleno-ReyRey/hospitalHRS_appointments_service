@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 public class Token{
 
-    public static string TokenCreation(int id, string name, string lastName, string email, string ensure_num, string role){
+    public static string TokenCreation(int id, string name, string lastName, string ensure_num, string role){
         var key = new ConfigurationBuilder().
         SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json").Build()
@@ -18,8 +18,8 @@ public class Token{
 
         var claims = new List<Claim>(){
             new Claim("id", id.ToString()),
-            new Claim("name", $"{name} {lastName}"),
-            new Claim("email", email),
+            new Claim("name", $"{name}"),
+            new Claim("lastName", $"{lastName}"),
             new Claim("ensure_num", ensure_num),
             new Claim("role", role)
         };

@@ -11,14 +11,14 @@ public class UsersController : ControllerBase{
         this.usersDB = usersDB;
     }
 
-    [HttpGet("getUser/{name}+{lastName}+{email}+{insurance_num}")]
-    public async Task<string> GetUser(string name, string lastName, string email, string insurance_num) {
+    [HttpGet("getUser/{name}+{lastName}+{insurance_num}")]
+    public async Task<string> GetUser(string name, string lastName, string insurance_num) {
         if(insurance_num == null){
-            var user = (await usersDB.users.SingleOrDefaultAsync(db => db.name == name && db.lastName == lastName && db.email == email))!;
-            return Token.TokenCreation(user.id, user.name!, user.lastName!, user.email!, "no insurance", user.role!);
+            var user = (await usersDB.users.SingleOrDefaultAsync(db => db.name == name && db.lastName == lastName))!;
+            return Token.TokenCreation(user.id, user.name!, user.lastName!, "no insurance", user.role!);
         } else{
-            var user = (await usersDB.users.SingleOrDefaultAsync(db => db.name == name && db.lastName == lastName && db.email == email && db.insurance_num == insurance_num))!;
-            return Token.TokenCreation(user.id, user.name!, user.lastName!, user.email!, user.insurance_num!, user.role!);
+            var user = (await usersDB.users.SingleOrDefaultAsync(db => db.name == name && db.lastName == lastName && db.insurance_num == insurance_num))!;
+            return Token.TokenCreation(user.id, user.name!, user.lastName!, user.insurance_num!, user.role!);
         }
     }
 
@@ -29,9 +29,9 @@ public class UsersController : ControllerBase{
         return user;
     }
 
-    [HttpDelete("deleteUser/{name}+{email}+{insurance_num}")]
-    public async Task<string> DeleteUser(string name, string email, string insurance_num) {
-        var user = await usersDB.users.FirstOrDefaultAsync(u => u.name == name && u.email == email && u.insurance_num == insurance_num);
+    [HttpDelete("deleteUser/{name}+{lastName}+{email}+{insurance_num}")]
+    public async Task<string> DeleteUser(string name, string lastName, string email, string insurance_num) {
+        var user = await usersDB.users.FirstOrDefaultAsync(u => u.name == name && u.lastName == lastName && u.email == email && u.insurance_num == insurance_num);
         if (user == null) {
             return "user not found";
         } else{
