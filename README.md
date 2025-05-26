@@ -3,23 +3,24 @@
 Este proyecto forma parte del sistema hospitalario HRS y se centra en la gestión de citas médicas. Está diseñado como una arquitectura de microservicios, facilitando la escalabilidad y el mantenimiento del sistema.
 
 Características
-Gestión de Citas Médicas: Permite la creación, actualización y cancelación de citas.
 
-Microservicios: Arquitectura basada en microservicios para una mejor modularidad.
+- Gestión de Citas Médicas: Permite la creación, actualización y cancelación de citas.
+
+- Microservicios: Arquitectura basada en microservicios para una mejor modularidad.
 
 Tecnologías Utilizadas:
 
-C#: Lenguaje principal del proyecto.
+- C#: Lenguaje principal del proyecto.
 
-Python: Utilizado en algunos servicios auxiliares.
+- Python: Utilizado en algunos servicios auxiliares.
 
-Docker: Para la contenerización de los servicios.
+- Docker: Para la contenerización de los servicios.
 
-Estructura del Proyecto
+Estructura del Proyecto:
 El repositorio contiene los siguientes servicios:
 
-appointments_service: Servicio principal para la gestión de citas.
+- appointments_service: Servicio principal para la gestión de citas.
 
-clients_service: Servicio para la gestión de información de los pacientes.
+- clients_service: Servicio para la gestión de información de los pacientes.
 
-doctors_service: Servicio para la gestión de información de los médicos.
+- doctors_service: Servicio para la gestión de información de los médicos.
